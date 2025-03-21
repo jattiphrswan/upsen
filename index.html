@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./style.css" rel="stylesheet">
+    <link href="https://unpkg.com/tailwindcss@^2.0/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./script.js"></script>
+    <title>Document</title>
+</head>
+
+<body class="bg-black">
+    <nav class="text-white p-4 sticky top-0 z-50 bg-black bg-opacity-50 ">
+        <div class="container mx-auto flex justify-between items-center">
+            <!-- Logo -->
+            <div class="logo ">
+                <img src="./assets/logo.png" alt="">
+            </div>
+
+            <!-- Desktop Menu -->
+            <ul class="hidden md:flex space-x-6">
+                <li><a href="#" class="hover:text-gray-300">Date Side </a></li>
+                <li><a href="#" class="hover:text-gray-300">Radio side</a></li>
+
+            </ul>
+
+            <!-- Mobile Menu Button -->
+            <button id="menu-btn" class="md:hidden">
+                <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+                <svg id="close-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <ul id="mobile-menu"
+            class="hidden md:hidden flex flex-col items-center space-y-4 mt-4 bg-black bg-opacity-50 backdrop-blur-md p-4">
+            <li><a href="#" class="hover:text-gray-300">Home</a></li>
+            <li><a href="#" class="hover:text-gray-300">About</a></li>
+            <li><a href="#" class="hover:text-gray-300">Services</a></li>
+            <li><a href="#" class="hover:text-gray-300">Contact</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section class="hero">
+            <div class="overlay">
+                <div class="container mx-auto flex flex-col justify-center items-center h-screen">
+                    <h1 class="text-4xl font-bold text-white text-center">Universal Public Service Emergency
+                        Notification Enabling System</h1>
+
+                    <button class="btn mt-4">Learn More</button>
+                </div>
+            </div>
+
+        </section>
+        <section>
+            <div class="container mx-auto flex flex-col h-screen">
+                <!-- Frontend Button -->
+                <div class="flex flex-col justify-center items-center mb-20 space-y-4">
+                    <button class="border-amber-100 border-2 text-2xl text-amber-100 p-4 rounded">Frontend</button>
+                </div>
+            
+                <!-- SVG Path Connector -->
+                <div class="flex justify-center">
+                    <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M50 0 C50 50, 50 50, 50 100" stroke="white" stroke-width="2" fill="transparent"/>
+                    </svg>
+                </div>
+            
+                <!-- Backend Buttons -->
+                <div class="row-auto flex flex-wrap h-screen items-center">
+                    <div class="w-1/2 flex justify-center items-center">
+                        <button class="border-amber-100 border-2 text-2xl text-amber-100 p-4 rounded">Backend</button>
+                    </div>
+                    <div class="w-1/2 flex justify-center items-center">
+                        <button class="border-amber-100 border-2 text-2xl text-amber-100 p-4 rounded">Backend</button>
+                    </div>
+                </div>
+            </div>
+            
+                
+                
+                
+                
+                
+            </div>
+        </section>
+    </main>
+
+</body>
+
+</html>
