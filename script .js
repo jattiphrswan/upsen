@@ -8,3 +8,5 @@ menuBtn.addEventListener('click', () => {
     menuIcon.classList.toggle('hidden');
     closeIcon.classList.toggle('hidden');
 });
+
+
