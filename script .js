@@ -10,3 +10,10 @@ menuBtn.addEventListener('click', () => {
 });
 
 
+function showPopup(content) {
+    document.getElementById('popup-content').innerText = content;
+    document.getElementById('popup').style.display = 'block';
+}
+function closePopup() {
+    document.getElementById('popup').style.display = 'none';
+}
