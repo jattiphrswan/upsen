@@ -2,8 +2,8 @@
 @import "tailwindcss/utilities";
 @import "tailwindcss/components";
 
-.hero{
-    background-color:#090042;
+.hero {
+    background-color: #090042;
     background-image: url('./assets/bg.jpg');
     background-size: cover;
     background-position: center;
@@ -24,7 +24,7 @@
 
 
 
-.logo img{
+.logo img {
     width: 200px;
     height: 60px;
 }
@@ -32,13 +32,13 @@
 
 
 .tree ul {
-    padding-top: 20px; 
+    padding-top: 30px;
     position: relative;
     transition: all 0.5s;
 }
 
 .tree li {
-    float: left; 
+    float: left;
     text-align: center;
     list-style-type: none;
     position: relative;
@@ -46,31 +46,34 @@
     transition: all 0.5s;
 }
 
-.tree li::before, .tree li::after {
+.tree li::before,
+.tree li::after {
     content: '';
-    position: absolute; 
-    top: 0; 
+    position: absolute;
+    top: 0;
     right: 50%;
     border-top: 1px solid #fcfcfc;
-    width: 50%; 
+    width: 50%;
     height: 20px;
 }
 
 .tree li::after {
-    right: auto; 
+    right: auto;
     left: 50%;
     border-left: 1px solid #ccc;
 }
 
-.tree li:only-child::after, .tree li:only-child::before {
+.tree li:only-child::after,
+.tree li:only-child::before {
     display: none;
 }
 
-.tree li:only-child { 
+.tree li:only-child {
     padding-top: 0;
 }
 
-.tree li:first-child::before, .tree li:last-child::after {
+.tree li:first-child::before,
+.tree li:last-child::after {
     border: 0 none;
 }
 
@@ -85,12 +88,12 @@
 
 .tree ul ul::before {
     content: '';
-    position: absolute; 
-    top: 0; 
+    position: absolute;
+    top: 0;
     left: 50%;
     border-left: 1px solid #ccc;
-    width: 0; 
-    height: 20px;
+    width: 0;
+    height: 30px;
 }
 
 .tree li button {
@@ -106,6 +109,7 @@
     background: transparent;
 }
 
+/* 
 .tree li button:hover, .tree li button:hover + ul li button {
     background: #c8e4f8; 
     color: #000; 
@@ -117,34 +121,85 @@
 .tree li button:hover + ul::before, 
 .tree li button:hover + ul ul::before {
     border-color: #94a0b4;
-}
+} */
+
+
 
 .card-list {
     display: flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap;  */
     list-style: none;
     padding: 0;
 }
 
 .card-list li {
-    flex: 1 1 calc(33.33% - 10px); 
-    max-width: 90px;}
+    flex: 1 1 calc(33.33% - 10px);
+    max-width: 90px;
+}
 
 .card {
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-
     color: #fff;
-    background-color: #1f2937; 
-    padding: 5px;
-    width: 100%;
-    height: 90px; 
+    background-color: #3a455f;
+    width: 105%;
+    min-height: 100px;
     border-radius: 5px;
-    font-size: 12px;
-    font-weight: 600;
+    font-size: 14px;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.card .popup-content {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    width: 40vw;
+    min-height: 650px;
+    background-color: rgb(255, 255, 255);
+    color: black;
+    padding: 20px;
+    border-radius: 5px;
+    font-size: 20px;
+    text-align: left;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1000;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    overflow: hidden;
+}
+
+.card .popup-content h3 {
+    font-weight: bold;
+    padding: 2rem 0 1rem 0;
+    text-align: center;
+    font-size: 30px;
+}
+
+/* Show on hover */
+
+.card:hover .popup-content {
+    opacity: 1;
+    visibility: visible;
 }
 
 
+.card_ul {
+    text-decoration: none;
+    list-style: none;
+}
 
+.card_ul_li {
+    text-decoration: none;
+    list-style: none;
+}
+
+.treetwo {
+    padding: 25rem 0 0 10rem !important;
+    /* margin: 15rem 0 0 0 !important; */
+}
