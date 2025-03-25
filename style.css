@@ -153,6 +153,10 @@
     transition: all 0.3s ease-in-out;
 }
 
+.card:hover{
+    background-color: #7483ab;
+}
+
 .card .popup-content {
     position: fixed;
     top: 50%;
@@ -202,4 +206,10 @@
 .treetwo {
     padding: 25rem 0 0 10rem !important;
     /* margin: 15rem 0 0 0 !important; */
+}
+
+.upsen_img{
+    width: 80%;
+    margin: auto;
+    padding: 5rem 0 0 0;
 }
