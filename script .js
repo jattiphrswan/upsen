@@ -17,3 +17,23 @@ function showPopup(content) {
 function closePopup() {
     document.getElementById('popup').style.display = 'none';
 }
+
+
+
+document.querySelector('a[href="#data-side"]').addEventListener('click', function (e) {
+    e.preventDefault(); // Prevent default anchor behavior
+    document.querySelector('section').scrollIntoView({
+        behavior: 'smooth', 
+        block: 'start' 
+    });
+});
+
+
+document.querySelector('a[href="#radio-side"]').addEventListener('click', function (e) {
+    e.preventDefault(); // Prevent default anchor behavior
+    document.querySelector('section').scrollIntoView({
+        behavior: 'smooth', 
+        block: 'start' 
+    });
+});
+    

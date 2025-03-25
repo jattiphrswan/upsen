@@ -2,6 +2,15 @@
 @import "tailwindcss/utilities";
 @import "tailwindcss/components";
 
+
+
+/* for smooth scroll spy  */
+
+
+html {
+    scroll-behavior: smooth;
+  }  
+
 .hero {
     background-color: #090042;
     background-image: url('./assets/bg.jpg');
