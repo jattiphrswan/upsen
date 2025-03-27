@@ -4,24 +4,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>World Regions</title>
+    <title>Upsen</title>
     <link rel="stylesheet" href="./map.css">
     <link href="https://unpkg.com/tailwindcss@^2.0/dist/tailwind.min.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="./script.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDrMzk5Yfhc4vX4jwU2vlyxFS4X7Bl4bos&callback=initMap"
         async defer></script>
+    <link rel="icon" type="image/png" href="./assets/fav.jpg">
 </head>
 
 <body class="">
 
     <!-- Logo -->
-    <nav class="text-white p-4 sticky  bg-black">
-        <div class="container mx-auto flex justify-center items-center">
+    <nav class="text-white p-4 sticky top-0 z-50 bg-black ">
+        <div class="container mx-auto flex justify-between items-center">
             <!-- Logo -->
-            <div class="logo">
-                <img src="./assets/logo.png" alt="Logo" class="mx-auto">
+            <div class="logo ">
+                <a href="./index.html">
+
+                    <img src="./assets/logo.png" alt="">
+                </a>
             </div>
+
+            <!-- Desktop Menu -->
+            <ul class="hidden md:flex space-x-6">
+                <li><a href="./map.html"
+                        class="hover:text-gray-300 border-amber-100 border-2 text-xl text-amber-100 p-2 rounded">World
+                        Regions
+                    </a></li>
+
+                <li><a href="./index.html"
+                        class="hover:text-gray-300 border-amber-100 border-2 text-xl text-amber-100 p-2 rounded">Date
+                        Side </a></li>
+                <li><a href="./index.html"
+                        class="hover:text-gray-300 border-amber-100 border-2 text-xl text-amber-100 p-2 rounded">Radio
+                        side</a></li>
+
+            </ul>
+
             <!-- Mobile Menu Button -->
             <button id="menu-btn" class="md:hidden">
                 <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
@@ -43,7 +64,6 @@
             <li><a href="#" class="hover:text-gray-300">Services</a></li>
             <li><a href="#" class="hover:text-gray-300">Contact</a></li>
         </ul>
-
     </nav>
 
 
@@ -248,7 +268,7 @@
         </div>
     </div>
 
-    <div class="container-fluid">   
+    <div class="container-fluid">
         <div class="row map-bg">
             <div class="">
                 <div class="map-container">
