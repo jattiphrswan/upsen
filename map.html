@@ -4,58 +4,245 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upsen</title>
-    <link rel="stylesheet" href="map.css">
+    <title>World Regions</title>
+    <link rel="stylesheet" href="./map.css">
+    <link href="https://unpkg.com/tailwindcss@^2.0/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./script.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDrMzk5Yfhc4vX4jwU2vlyxFS4X7Bl4bos&callback=initMap"
         async defer></script>
 </head>
 
-<body>
+<body class="">
+    <!-- Logo -->
+    <div class="container mx-auto flex justify-between items-center">
+        <div class="logo ">
+            <img src="./assets/logo.png" alt="">
+        </div>
 
-    <div class="container">
+
+    </div>
+    <div class="container-fluid bg-black">
         <div class="row">
-            <div class="col-left">
+            <div class="col">
+                <div class="flex flex-wrap gap-4 justify-center mt-4">
+                    <div class="z-40">
+                        <button onclick="addMultipleMarkers([
+                            { lat: -8.8390, lng: 13.2894, title: 'Angola' },
+                            { lat: 4.4419, lng: 15.2663, title: 'Congo' },
+                            { lat: 13.4549, lng: 16.5790, title: 'Gambia'},
+                            { lat: 8.4657, lng: 13.2317, title: 'Sierre Leone' },
+                            { lat: 0.3136, lng: 32.5811, title: 'Uganda'},
+                        ])"
+                            class="bg-white text-black border-2 border-black text-xl p-2 rounded hover:bg-gray-800 hover:text-gray-300">Africel</button>
+                    </div>
+
+                    <div class="z-40">
+                        <button onclick="addMultipleMarkers([
+                            { lat: 12.6392, lng: 14.0149, title: 'Chad' },
+                            { lat: 4.4419, lng: 15.2663, title: 'Congo DRC' },
+                            { lat: 4.2634, lng: 15.2429, title: 'Congo Re' },
+                            { lat: 0.4162, lng: 9.4673, title: 'Gabon' },
+                            { lat: 5.6037, lng: 0.1870, title: 'Ghana' },
+                            { lat: 1.2867, lng: 36.8172, title: 'Kenya' },
+                            { lat: 18.8792, lng: 47.5079, title: 'Madagascar' },
+                            { lat: 13.9833, lng: 33.7833, title: 'Malawi' },
+                            { lat: 13.5128, lng: 2.1128, title: 'Niger' },
+                            { lat: 9.0579, lng: 7.4951, title: 'Nigeria' },
+                            { lat: 1.9441, lng: 30.0619, title: 'Rwanda' },
+                            { lat: 4.6167, lng: 55.4500, title: 'Seychelles' },
+                            { lat: 6.1659, lng: 35.7516, title: 'Tanzania' },
+                            { lat: 0.3136, lng: 32.5811, title: 'Uganda'},
+                            { lat: 15.3875, lng: 28.3228, title: 'Zambia'}
+                        ])"
+                            class="bg-white text-black border-2 border-black text-xl p-2 rounded hover:bg-gray-800 hover:text-gray-300">Airtel</button>
+                    </div>
+
+                    <div class="z-40">
+                        <button onclick="addMultipleMarkers([
+                            { lat: 3.4256, lng: 29.9300, title: 'Burundi' },
+                            { lat: 29.3148, lng: 27.4937, title: 'Lesotho' },
+                            { lat: 17.8292, lng: 31.0522, title: 'Zimbabwe' }
+                        ])"
+                            class="bg-white text-black border-2 border-black text-xl p-2 rounded hover:bg-gray-800 hover:text-gray-300">Econet</button>
+                    </div>
+
+                    <div class="z-40">
+                        <button onclick="addMultipleMarkers([
+                            { lat: 6.4969, lng: 2.6289, title: 'Benin' },
+                            { lat: 12.3711, lng: 1.5197, title: 'Burkina Faso' },
+                            { lat: 4.3947, lng: 18.5582, title: 'Central African Republic' },
+                            { lat: 6.8190, lng: 5.2765, title: 'Cote D Ivoire' },
+                            { lat: 0.4162, lng: 9.4673, title: 'Gabon' },
+                            { lat: 18.0780, lng: 15.9780, title: 'Mauritania' },
+                            { lat: 13.5128, lng: 2.1128, title: 'Niger' },
+                            { lat: 6.1375, lng: 1.2125, title: 'Togo' }
+                        ])"
+                            class="bg-white text-black border-2 border-black text-xl p-2 rounded hover:bg-gray-800 hover:text-gray-300">Moov</button>
+                    </div>
+
+                    <div class="z-40">
+                        <button onclick="addMultipleMarkers([
+                            { lat: 6.4969, lng: 2.6289, title: 'Benin' },
+                            { lat: 3.8480, lng: 11.5021, title: 'Cameroon' },
+                            { lat: 4.2634, lng: 15.2429, title: 'Congo Re' },
+                            { lat: 6.8190, lng: 5.2765, title: 'Cote D Ivoire' },
+                            { lat: 3.75, lng: 8.7833, title: 'Equatorial Guinea' },
+                            { lat: 26.3144, lng: 31.1349, title: 'Eswatini' },
+                            { lat: 5.6037, lng: 0.1870, title: 'Ghana' },
+                            { lat: 9.5095, lng: 13.7122, title: 'Guinea' },
+                            { lat: 11.8817, lng: 15.6170, title: 'Guinea Bassau' },
+                            { lat: 6.4281, lng: 9.4295, title: 'Liberia' },
+                            { lat: 9.0579, lng: 7.4951, title: 'Nigeria' },
+                            { lat: 1.9441, lng: 30.0619, title: 'Rwanda' },
+                            { lat: 25.7460, lng: 28.1881, title: 'South Africa' },
+                            { lat: 4.8594, lng: 31.5820, title: 'South Sudan' },
+                            { lat: 15.5007, lng: 32.5599, title: 'Sudan' },
+                            { lat: 0.3136, lng: 32.5811, title: 'Uganda'},
+                            { lat: 15.3875, lng: 28.3228, title: 'Zambia'}
+                        ])"
+                            class="bg-white text-black border-2 border-black text-xl p-2 rounded hover:bg-gray-800 hover:text-gray-300">MTN</button>
+                    </div>
+
+                    <div class="z-40">
+                        <button onclick="addMultipleMarkers([
+                            { lat: 24.6282, lng: 25.9231, title: 'Botswana' },
+                            { lat: 12.3711, lng: 1.5197, title: 'Burkina Faso' },
+                            { lat: 3.8480, lng: 11.5021, title: 'Cameroon' },
+                            { lat: 4.3947, lng: 18.5582, title: 'Central African Republic' },
+                            { lat: 4.4419, lng: 15.2663, title: 'Congo DRC' },
+                            { lat: 6.8190, lng: 5.2765, title: 'Cote D Ivoire' },
+                            { lat: 30.0330, lng: 31.2357, title: 'Egypt' },
+                            { lat: 3.75, lng: 8.7833, title: 'Equatorial Guinea' },
+                            { lat: 9.5095, lng: 13.7122, title: 'Guinea' },
+                            { lat: 11.8817, lng: 15.6170, title: 'Guinea Bassau' },
+                            { lat: 6.4281, lng: 9.4295, title: 'Liberia' },
+                            { lat: 18.8792, lng: 47.5079, title: 'Madagascar' },
+                            { lat: 20.1600, lng: 57.4989, title: 'Mauritius' },
+                            { lat: 34.0209, lng: 6.8416, title: 'Morocco' },
+                            { lat: 13.5128, lng: 2.1128, title: 'Niger' },
+                            { lat: 14.6928, lng: 17.4467, title: 'Senegal' },
+                            { lat: 8.4657, lng: 13.2317, title: 'Sierre Leone' },
+                            { lat: 36.8065, lng: 10.1815, title: 'Tunisia' }
+                        ])"
+                            class="bg-white text-black border-2 border-black text-xl p-2 rounded hover:bg-gray-800 hover:text-gray-300">Orange</button>
+                    </div>
+
+                    <div class="z-40">
+                        <button onclick="addMultipleMarkers([
+                            { lat: 3.4256, lng: 29.9300, title: 'Burundi' },
+                            { lat: 8.4657, lng: 13.2317, title: 'Sierre Leone' },
+                            { lat: 0.3136, lng: 32.5811, title: 'Uganda'}
+                        ])"
+                            class="bg-white text-black border-2 border-black text-xl p-2 rounded hover:bg-gray-800 hover:text-gray-300">Smart</button>
+                    </div>
+
+                    <div class="z-40">
+                        <button onclick="addMultipleMarkers([
+                            { lat: 4.4419, lng: 15.2663, title: 'Congo DRC' },
+                            { lat: 29.3148, lng: 27.4937, title: 'Lesotho' },
+                            { lat: 25.9668, lng: 32.5892, title: 'Mozambique' },
+                            { lat: 25.7460, lng: 28.1881, title: 'South Africa' },
+                            { lat: 6.1659, lng: 35.7516, title: 'Tanzania' },
+                            { lat: 0.3136, lng: 32.5811, title: 'Uganda'}
+                        ])"
+                            class="bg-white text-black border-2 border-black text-xl p-2 rounded hover:bg-gray-800 hover:text-gray-300">Vodacom</button>
+                    </div>
+                    <div class="z-40">
+                        <button onclick="addMultipleMarkers([
+                            { lat: 12.3711, lng: 1.5197, title: 'Burkina Faso' },
+                            { lat: 3.4256, lng: 29.9300, title: 'Burundi' },
+                            { lat: 4.3947, lng: 18.5582, title: 'Central African Republic' },
+                            { lat: 4.4419, lng: 15.2663, title: 'Congo DRC' },
+                            { lat: 0.4162, lng: 9.4673, title: 'Gabon' },
+                            { lat: 5.6037, lng: 0.1870, title: 'Ghana' },
+                            { lat: 11.8817, lng: 15.6170, title: 'Guinea Bassau' },
+                            { lat: 6.4281, lng: 9.4295, title: 'Liberia' },
+                            { lat: 22.5597, lng: 17.0836, title: 'Namibia' },
+                            { lat: 17.8292, lng: 31.0522, title: 'Zimbabwe' }
+                        ])"
+                            class="bg-white text-black border-2 border-black text-xl p-2 rounded hover:bg-gray-800 hover:text-gray-300">Telecel</button>
+                    </div>
+
+                    <div class="z-40">
+                        <button onclick="addMultipleMarkers([
+                            { lat: 4.4419, lng: 15.2663, title: 'Congo DRC' },
+                            { lat: 30.0330, lng: 31.2357, title: 'Egypt' },
+                            { lat: 9.1450, lng: 40.4897, title: 'Ethiopia' },
+                            { lat: 5.6037, lng: 0.1870, title: 'Ghana' },
+                            { lat: 1.2867, lng: 36.8172, title: 'Kenya' },
+                            { lat: 29.3148, lng: 27.4937, title: 'Lesotho' },
+                            { lat: 25.9668, lng: 32.5892, title: 'Mozambique' },
+                            { lat: 25.7460, lng: 28.1881, title: 'South Africa' },
+                            { lat: 6.1659, lng: 35.7516, title: 'Tanzania' },
+                        ])"
+                            class="bg-white text-black border-2 border-black text-xl p-2 rounded hover:bg-gray-800 hover:text-gray-300">Vodafone</button>
+                    </div>
+
+                    <div class="z-40">
+                        <button onclick="addMultipleMarkers([
+                            { lat: 6.4969, lng: 2.6289, title: 'Benin' },
+                            { lat: 4.3947, lng: 18.5582, title: 'Central African Republic' },
+                            { lat: 6.8190, lng: 5.2765, title: 'Cote D Ivoire' },
+                            { lat: 30.0330, lng: 31.2357, title: 'Egypt' },
+                            { lat: 0.4162, lng: 9.4673, title: 'Gabon' },
+                            { lat: 9.0579, lng: 7.4951, title: 'Nigeria' },
+                            { lat: 6.1375, lng: 1.2125, title: 'Togo' }
+                        ])"
+                            class="bg-white text-black border-2 border-black text-xl p-2 rounded hover:bg-gray-800 hover:text-gray-300">Etisalat</button>
+                    </div>
+
+                    <div class="z-40">
+                        <button onclick="addMultipleMarkers([
+                            { lat: 4.4419, lng: 15.2663, title: 'Congo DRC' },
+                            { lat: 18.8792, lng: 47.5079, title: 'Madagascar' },
+                            { lat: 14.6928, lng: 17.4467, title: 'Senegal' },
+                            { lat: 6.1659, lng: 35.7516, title: 'Tanzania' },
+                            { lat: 6.1375, lng: 1.2125, title: 'Togo' },
+                            { lat: 0.3136, lng: 32.5811, title: 'Uganda'}
+                        ])"
+                            class="bg-white text-black border-2 border-black text-xl p-2 rounded hover:bg-gray-800 hover:text-gray-300">Tigo</button>
+                    </div>
+
+                    <div class="z-40">
+                        <button onclick="addMultipleMarkers([
+                            { lat: 5.6037, lng: 0.1870, title: 'Ghana' },
+                            { lat: 9.0579, lng: 7.4951, title: 'Nigeria' },
+                        ])"
+                            class="bg-white text-black border-2 border-black text-xl p-2 rounded hover:bg-gray-800 hover:text-gray-300">Globacom</button>
+                    </div>
+
+                    <div class="z-40">
+                        <button onclick="addMultipleMarkers([
+                            { lat: 20.1600, lng: 57.4989, title: 'Mauritius' },
+                        ])"
+                            class="bg-white text-black border-2 border-black text-xl p-2 rounded hover:bg-gray-800 hover:text-gray-300">EMTEL</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="row map-bg">
+            <div class="">
                 <div class="map-container">
                     <div id="map"></div>
                 </div>
             </div>
 
-            <div class="col-right">
+            <div class="">
                 <div class="trip-main-card">
                     <div class="trip-cards">
                         <div class="trip-card" style="background-image: url('images/kc1.webp');">
                             <a href="#" class="trip-link"></a>
                         </div>
-
-                        <div>
-                            <button onclick="addMultipleMarkers([
-                                { lat: 25.6568547, lng: 37.4548587, title: 'Algeria' },
-                                { lat: -11.2027, lng: 17.8739, title: 'Angola' },
-                                { lat: 9.3077, lng: 2.3158, title: 'Benin' }
-                            ])">Africel</button>
-                        </div>
-
-                        <div>
-                            <button onclick="addMultipleMarkers([
-                                { lat: 48.8566, lng: 2.3522, title: 'France' },
-                                { lat: 52.5200, lng: 13.4050, title: 'Germany' },
-                                { lat: 41.9028, lng: 12.4964, title: 'Italy' }
-                            ])">AIRTEL</button>
-                        </div>
-
-                        <div>
-                            <button onclick="addMultipleMarkers([
-                                { lat: 28.6139, lng: 77.2090, title: 'India' },
-                                { lat: 39.9042, lng: 116.4074, title: 'China' },
-                                { lat: 35.6895, lng: 139.6917, title: 'Japan' }
-                            ])">Econet</button>
-                        </div>
-
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
 
     <script>
         var map;
@@ -69,9 +256,7 @@
         }
 
         function addMultipleMarkers(locations) {
-            // Clear previous markers
             clearMarkers();
-
             var bounds = new google.maps.LatLngBounds();
 
             locations.forEach((location) => {
@@ -79,21 +264,72 @@
                     position: { lat: location.lat, lng: location.lng },
                     map: map,
                     title: location.title,
+                    // icon: "images/map_markerss.png",
                     icon: "./assets/map_markerss.png",
+
                 });
 
                 markers.push(marker);
                 bounds.extend(new google.maps.LatLng(location.lat, location.lng));
             });
 
-            map.fitBounds(bounds); // Adjust view to fit markers
+            map.fitBounds(bounds);
         }
 
         function clearMarkers() {
             markers.forEach(marker => marker.setMap(null));
             markers = [];
         }
+
+
+        function initMap() {
+            map = new google.maps.Map(document.getElementById("map"), {
+                center: { lat: 10.0, lng: 20.0 }, // Default center
+                zoom: 3,
+                styles: [
+                    {
+                        "elementType": "geometry",
+                        "stylers": [{ "color": "#212121" }]
+                    },
+                    {
+                        "elementType": "labels.icon",
+                        "stylers": [{ "visibility": "off" }]
+                    },
+                    {
+                        "elementType": "labels.text.fill",
+                        "stylers": [{ "color": "#ffffff" }]
+                    },
+                    {
+                        "elementType": "labels.text.stroke",
+                        "stylers": [{ "color": "#000000" }]
+                    },
+                    {
+                        "featureType": "administrative",
+                        "elementType": "geometry",
+                        "stylers": [{ "color": "#757575" }]
+                    },
+                    {
+                        "featureType": "poi",
+                        "elementType": "geometry",
+                        "stylers": [{ "color": "#212121" }]
+                    },
+                    {
+                        "featureType": "road",
+                        "elementType": "geometry",
+                        "stylers": [{ "color": "#383838" }]
+                    },
+                    {
+                        "featureType": "water",
+                        "elementType": "geometry",
+                        "stylers": [{ "color": "#000000" }]
+                    }
+                ]
+            });
+        }
+
     </script>
+
+
 
 </body>
 
