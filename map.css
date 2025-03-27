@@ -1,6 +1,6 @@
 .map-container {
     width: 100%;
-    height: 100vh; /* Ensure the map has a height */
+    height: 100vh; 
    
 }
 #map {
@@ -8,9 +8,7 @@
     height: 100%;
 }
 
-.map-bg{
-    margin-top: -70px;
-}
+
 .logo img {
     width: 200px;
     height: 60px;
