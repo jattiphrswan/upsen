@@ -30,15 +30,23 @@
             <!-- Desktop Menu -->
             <ul class="hidden md:flex space-x-6">
 
-                <li><a href="./map.html"
-                        class="hover:text-gray-300 border-amber-100 border-2 text-xl text-amber-100 p-2 rounded">World
-                        Regions
-                    </a></li>
+                <li>
+                    <select id="continent"
+                        class="hover:text-gray-300 border-amber-100 border-2 text-xl text-amber-100 bg-transparent p-2 rounded">
+                        <option value="" selected disabled>Select Continent</option>
+                        <option value="asia" class="text-black">Asia</option>
+                        <option value="africa" class="text-black">Africa</option>
+                        <option value="europe" class="text-black">Europe</option>
+                        <option value="north-america" class="text-black">North America</option>
+                        <option value="south-america" class="text-black">South America</option>
+                        <option value="australia" class="text-black">Australia</option>
+                        <option value="antarctica" class="text-black">Antarctica</option>
+                    </select>
 
-                <li><a href="./index.html"
-                        class="hover:text-gray-300 border-amber-100 border-2 text-xl text-amber-100 p-2 rounded">Date
+                <li class="mt-2"><a href="./index.html"
+                        class="hover:text-gray-300 border-amber-100 border-2 text-xl text-amber-100 p-2 rounded">Data
                         Side </a></li>
-                <li><a href="./index.html"
+                <li class="mt-2"><a href="./index.html"
                         class="hover:text-gray-300 border-amber-100 border-2 text-xl text-amber-100 p-2 rounded">Radio
                         side</a></li>
 
@@ -77,26 +85,19 @@
         <div
             class="ml-9 absolute top-4 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-70 px-4 py-3 rounded-md flex flex-col md:flex-row items-center gap-2 z-50">
 
-
-            <select id="continent" class="p-2 rounded text-black">
-                <option value="" selected disabled>Select Continent</option>
-                <option value="asia">Asia</option>
-                <option value="africa">Africa</option>
-                <option value="europe">Europe</option>
-                <option value="north-america">North America</option>
-                <option value="south-america">South America</option>
-                <option value="australia">Australia</option>
-                <option value="antarctica">Antarctica</option>
-            </select>
             <div class="relative inline-block">
                 <button id="allCountriesBtn"
-                    class="text-white px-2 py-2 w-48 rounded bg-gradient-to-r from-blue-400 to-black capitalize">
+                    class="text-white flex items-center justify-between px-4 py-2 w-48 rounded bg-gradient-to-r from-blue-400 to-black capitalize">
                     Show Countries
+                    <svg class="w-4 h-4 ml-2 fill-current text-white" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20">
+                        <path d="M5.516 7.548l4.484 4.488 4.484-4.488 1.416 1.416L10 14.868 4.1 8.964z" />
+                    </svg>
                 </button>
-                <!-- Container for country list will be appended here -->
             </div>
-
         </div>
+
+    </div>
     </div>
 
 
@@ -111,10 +112,10 @@
         // Create a container to dynamically show country list
         const countryOverlay = document.createElement('ul');
         countryOverlay.className = `
-  absolute mt-2 left-0 w-100 max-h-90 overflow-y-auto 
-  bg-white bg-opacity-95 rounded-lg shadow-lg 
-  list-none z-50 p-2 border border-gray-200
-`;
+    absolute mt-2 left-0 w-100 max-h-90 overflow-y-auto 
+    bg-white bg-opacity-95 rounded-lg shadow-lg 
+    list-none z-50 p-2 border border-gray-200 text-dark
+    `;
 
         countryOverlay.id = 'countryList';
         countryOverlay.style.zIndex = 1000;
@@ -369,151 +370,70 @@
         };
 
 
-        const darkModeStyles = [
-            { elementType: "geometry", stylers: [{ color: "#212121" }] },
-            { elementType: "labels.icon", stylers: [{ visibility: "off" }] },
-            { elementType: "labels.text.fill", stylers: [{ color: "#757575" }] },
-            { elementType: "labels.text.stroke", stylers: [{ color: "#212121" }] },
-            {
-                featureType: "administrative",
-                elementType: "geometry",
-                stylers: [{ color: "#757575" }],
-            },
-            {
-                featureType: "administrative.country",
-                elementType: "labels.text.fill",
-                stylers: [{ color: "#9e9e9e" }],
-            },
-            {
-                featureType: "administrative.land_parcel",
-                stylers: [{ visibility: "off" }],
-            },
-            {
-                featureType: "administrative.locality",
-                elementType: "labels.text.fill",
-                stylers: [{ color: "#bdbdbd" }],
-            },
-            {
-                featureType: "poi",
-                elementType: "labels.text.fill",
-                stylers: [{ color: "#757575" }],
-            },
-            {
-                featureType: "poi.park",
-                elementType: "geometry",
-                stylers: [{ color: "#181818" }],
-            },
-            {
-                featureType: "poi.park",
-                elementType: "labels.text.fill",
-                stylers: [{ color: "#616161" }],
-            },
-            {
-                featureType: "poi.park",
-                elementType: "labels.text.stroke",
-                stylers: [{ color: "#1b1b1b" }],
-            },
-            {
-                featureType: "road",
-                elementType: "geometry.fill",
-                stylers: [{ color: "#2c2c2c" }],
-            },
-            {
-                featureType: "road",
-                elementType: "labels.text.fill",
-                stylers: [{ color: "#8a8a8a" }],
-            },
-            {
-                featureType: "road.arterial",
-                elementType: "geometry",
-                stylers: [{ color: "#373737" }],
-            },
-            {
-                featureType: "road.highway",
-                elementType: "geometry",
-                stylers: [{ color: "#3c3c3c" }],
-            },
-            {
-                featureType: "road.highway.controlled_access",
-                elementType: "geometry",
-                stylers: [{ color: "#4e4e4e" }],
-            },
-            {
-                featureType: "road.local",
-                elementType: "labels.text.fill",
-                stylers: [{ color: "#616161" }],
-            },
-            {
-                featureType: "transit",
-                elementType: "geometry",
-                stylers: [{ color: "#2f2f2f" }],
-            },
-            {
-                featureType: "transit.station",
-                elementType: "labels.text.fill",
-                stylers: [{ color: "#757575" }],
-            },
-            {
-                featureType: "water",
-                elementType: "geometry",
-                stylers: [{ color: "#000000" }],
-            },
-            {
-                featureType: "water",
-                elementType: "labels.text.fill",
-                stylers: [{ color: "#3d3d3d" }],
-            },
-        ];
-
-
-        // show marker js  code here 
-
-
-        var map;
-        var markers = [];
-
-        // const countryCoordinates = {
-        //     India: { lat: 20.5937, lng: 78.9629 },
-        //     Nepal: { lat: 28.3949, lng: 84.1240 },
-        //     China: { lat: 35.8617, lng: 104.1954 },
-        //     Japan: { lat: 36.2048, lng: 138.2529 },
-        //     Australia: { lat: -25.2744, lng: 133.7751 },
-        //     // ... add more countries as needed
-        // };
-
-        const asiaCountries = ["India", "Nepal", "China", "Japan", "Australia"];
+        let map;
+        let currentMarker = null;
 
         function initMap() {
             map = new google.maps.Map(document.getElementById("map"), {
-                center: { lat: 20.5937, lng: 78.9629 },
-                zoom: 4,
+                center: { lat: 20.0, lng: 0.0 },
+                zoom: 2,
             });
 
-            new google.maps.Marker({
-                position: { lat: 20.5937, lng: 78.9629 },
-                map: map,
-                title: "India"
-            });
-        }
-        function renderCountryList(countries) {
-            const listContainer = document.getElementById("countryList");
-            countries.forEach((country) => {
-                const div = document.createElement("div");
-                div.className = "country";
-                div.textContent = country;
-                div.onclick = () => handleCountryClick(country);
-                listContainer.appendChild(div);
+            // Handle country click
+            document.getElementById("allCountriesBtn").addEventListener("click", function () {
+                const countryList = Object.keys(countryCoordinates);
+                const ul = document.getElementById("countryList");
+                ul.innerHTML = "";
+                countryList.forEach(country => {
+                    const li = document.createElement("li");
+                    li.textContent = country;
+                    li.className = "cursor-pointer hover:bg-gray-200 px-3 py-2 rounded";
+                    li.addEventListener("click", () => {
+                        showCountryMarker(country);
+                    });
+                    ul.appendChild(li);
+                });
             });
         }
 
-        function handleCountryClick(countryName) {
-            const coord = countryCoordinates[countryName];
-            if (coord) {
-                addMultipleMarkers([{ lat: coord.lat, lng: coord.lng, title: countryName }]);
-            } else {
-                alert("Coordinates not found for: " + countryName);
+        function showCountryMarker(country) {
+            const coords = countryCoordinates[country];
+            if (!coords) return;
+
+            // Clear previous marker
+            if (currentMarker) {
+                currentMarker.setMap(null);
             }
+
+            // Custom icon
+            const customIcon = {
+                url: "your-icon-path.png", // <-- replace with actual path or URL
+                scaledSize: new google.maps.Size(40, 40),
+                anchor: new google.maps.Point(20, 40)
+            };
+
+            currentMarker = new google.maps.Marker({
+                position: coords,
+                map: map,
+                icon: "./assets/map_markerss.png",
+                title: country,
+            });
+
+            const infoWindow = new google.maps.InfoWindow({
+                content: `<strong>${country} </strong>`,
+            });
+
+            currentMarker.addListener("click", () => {
+                infoWindow.open(map, currentMarker);
+            });
+
+            map.setZoom(5);
+            map.setCenter(coords);
         }
+
+        window.onload = initMap;
+
+
 
         function addMultipleMarkers(locations) {
             clearMarkers();
@@ -524,8 +444,8 @@
                     position: { lat: location.lat, lng: location.lng },
                     map: map,
                     title: location.title,
-                    // icon: "./assets/map_markerss.png",
-                    icon: "http://maps.google.com/mapfiles/ms/icons/red-dot.png"
+                    icon: "./assets/map_markerss.png",
+
 
                 });
 
@@ -547,13 +467,7 @@
 
 
 
-        function handleCountryClick(countryName) {
-            const coord = countryCoordinates[countryName];
-            console.log("Country:", countryName, "Coord:", coord); // 👈 Add this line
-            if (coord) {
-                addMultipleMarkers([{ lat: coord.lat, lng: coord.lng, title: countryName }]);
-            }
-        }
+
 
 
         // Append to the parent div of the button
@@ -566,10 +480,10 @@
             // Populate the overlay
             countryOverlay.innerHTML = countries.map(c =>
                 `<li class="my-1">
-                        <button class="underline text-blue-500 hover:text-white hover:bg-blue-500 transition-all w-full text-left px-2 py-1 rounded country-item" data-country="${c}">
-                            ${c}
-                        </button>
-                        </li>`
+                            <button class="underline text-blue-500 hover:text-white hover:bg-blue-500 transition-all w-full text-left px-2 py-1 rounded country-item" data-country="${c}">
+                                ${c}
+                            </button>
+                            </li>`
             ).join('');
 
             // Toggle visibility
