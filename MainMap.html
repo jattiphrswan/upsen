@@ -72,7 +72,8 @@
         <div id="map" class="w-full h-full"></div>
 
         <!-- Top Center Button -->
-        <div class="absolute top-8 left-1/2 transform -translate-x-1/2 z-50">
+        <!-- Top Left Button -->
+        <div class="absolute top-10 mt-3 left-2 z-50">
             <div class="bg-black bg-opacity-70 px-4 py-3 rounded-md">
                 <button id="allCountriesBtn"
                     class="text-white px-2 py-2 w-48 rounded bg-gradient-to-r from-blue-400 to-black capitalize flex items-center justify-between">
@@ -85,11 +86,14 @@
             </div>
         </div>
 
+
         <!-- Centered Country List -->
+        <!-- Country List on Left -->
         <div id="countryList"
-            class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white bg-opacity-90 rounded-md shadow-md max-h-[400px] overflow-y-auto w-60 z-100 hidden">
+            class="absolute top-28 left-8 bg-white bg-opacity-90 rounded-md shadow-md max-h-[400px] overflow-y-auto w-60 z-50 hidden">
             <!-- Country list items go here -->
         </div>
+
     </div>
 
 
@@ -440,9 +444,6 @@
         ];
 
 
-
-
-
         let map;
         let markers = [];
 
@@ -454,21 +455,44 @@
             });
 
             // ✅ Add your country markers here:
+
+            addMarker({ lat: 28.0339, lng: 1.6596 }, {
+                name: "Algeria",
+                Carrier: "Mobilis",
+                Subs: "22.1 Million",
+
+
+                Carrier2: "Djczzy",
+                Subs2: "15.6 Million",
+
+
+                Carrier3: "Ooredoo",
+                Subs3: "19.9 Million",
+
+                flagUrl: "https://flagcdn.com/w320/dz.png"
+
+            });
+
+
+
             addMarker({ lat: 20.5937, lng: 78.9629 }, {
                 name: "India",
-                population: "1.4 Billion",
+                Carrier: "Mobilis",
+                Subs: "22.1 Million",
                 flagUrl: "https://flagcdn.com/w320/in.png"
             });
 
             addMarker({ lat: 37.0902, lng: -95.7129 }, {
                 name: "USA",
-                population: "331 Million",
+                Carrier: "---",
+                Subs: "20.1 Million",
                 flagUrl: "https://flagcdn.com/w320/us.png"
             });
 
             addMarker({ lat: 51.1657, lng: 10.4515 }, {
                 name: "Germany",
-                population: "83 Million",
+                Carrier: "------",
+                Subs: "25.1 Million",
                 flagUrl: "https://flagcdn.com/w320/de.png"
             });
         }
@@ -487,12 +511,20 @@
             });
 
             const contentString = `
-        <div style="min-width: 180px; padding: 10px; font-size: 14px;">
-            <img src="${countryData.flagUrl}" alt="${countryData.name} flag" style="width: 40px; height: auto; margin-bottom: 8px;">
-            <strong>${countryData.name}</strong><br>
-            Population: ${countryData.population}
-        </div>
-    `;
+            <div style="min-width: 200px; padding: 10px; font-size: 14px;">
+                <img src="${countryData.flagUrl}" alt="${countryData.name} flag" style="width: 40px; height: auto; margin-bottom: 8px;">
+                <strong>${countryData.name}</strong><br><br>
+
+                <b>Carrier:</b> ${countryData.Carrier} <br>
+                <b>Subscription:</b> ${countryData.Subs} <br><br>
+
+                <b>Carrier:</b> ${countryData.Carrier2 || "N/A"} <br>
+                <b>Subscription:</b> ${countryData.Subs2 || "N/A"} <br><br>
+
+                <b>Carrier:</b> ${countryData.Carrier3 || "N/A"} <br>
+                <b>Subscription:</b> ${countryData.Subs3 || "N/A"} <br>
+            </div>
+        `;
 
             const infoWindow = new google.maps.InfoWindow({
                 content: contentString
@@ -513,34 +545,45 @@
 
 
 
-
         continentSelect.addEventListener('change', function () {
             const selectedContinent = this.value;
             const countries = countriesByContinent[selectedContinent] || [];
-            countryListContainer.innerHTML = ''; // Clear previous list
-            countryListContainer.classList.add('hidden'); // Hide the list initially
+            countryListContainer.innerHTML = '';
+            countryListContainer.classList.remove('hidden');
 
             if (countries.length > 0) {
+                // Clear previous markers
+                clearMarkers();
+
+                // Calculate the center of all country coordinates
+                let bounds = new google.maps.LatLngBounds();
+
                 countries.forEach(country => {
-                    const listItem = document.createElement('div');
-                    listItem.textContent = country;
-                    listItem.className = 'px-4 py-2 hover:bg-gray-100 cursor-pointer m-auto';
-                    listItem.addEventListener('click', () => {
-                        const coordinates = countryCoordinates[country];
-                        if (coordinates) {
+                    const coordinates = countryCoordinates[country];
+                    if (coordinates) {
+                        addMarker(coordinates, country);
+                        bounds.extend(new google.maps.LatLng(coordinates.lat, coordinates.lng));
+
+                        // Add to country list
+                        const listItem = document.createElement('div');
+                        listItem.textContent = country;
+                        listItem.className = 'px-4 py-2 hover:bg-gray-100 cursor-pointer';
+                        listItem.addEventListener('click', () => {
                             map.setCenter(coordinates);
-                            map.setZoom(6); // Adjust zoom level as needed
+                            map.setZoom(6);
                             clearMarkers();
                             addMarker(coordinates, country);
-                            countryListContainer.classList.add('hidden'); // Hide list after selection
-                        } else {
-                            console.warn(`Coordinates not found for ${country}`);
-                        }
-                    });
-                    countryListContainer.appendChild(listItem);
+                            countryListContainer.classList.add('hidden');
+                        });
+                        countryListContainer.appendChild(listItem);
+                    }
                 });
+
+                // Fit the map to show all markers in the continent
+                map.fitBounds(bounds);
             }
         });
+
 
         allCountriesBtn.addEventListener('click', function () {
             countryListContainer.classList.toggle('hidden');
