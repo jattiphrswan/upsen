@@ -16,24 +16,19 @@
 
 <body class="bg-black">
 
-    <!-- Logo -->
     <nav class="text-white p-4 sticky top-0 z-50 bg-black ">
         <div class="container mx-auto flex justify-between items-center">
-            <!-- Logo -->
             <div class="logo ">
                 <a href="./index.html">
-
                     <img src="./assets/logo.png" alt="">
                 </a>
             </div>
 
-            <!-- Desktop Menu -->
             <ul class="hidden md:flex space-x-6">
-
                 <li>
                     <select id="continent"
-                        class="hover:text-gray-300 border-amber-100 border-2 text-xl text-amber-100 bg-transparent p-2 rounded">
-                        <option value="" selected disabled>Select Continent</option>
+                        class="hover:text-gray-300 border-amber-100 border-2 text-xl text-amber-100 p-2 rounded bg-transparent focus:outline-none">
+                        <option value="" selected disabled class="text-black">Select Continent</option>
                         <option value="asia" class="text-black">Asia</option>
                         <option value="africa" class="text-black">Africa</option>
                         <option value="europe" class="text-black">Europe</option>
@@ -42,17 +37,15 @@
                         <option value="australia" class="text-black">Australia</option>
                         <option value="antarctica" class="text-black">Antarctica</option>
                     </select>
-
+                </li>
                 <li class="mt-2"><a href="./index.html"
-                        class="hover:text-gray-300 border-amber-100 border-2 text-xl text-amber-100 p-2 rounded">Data
+                        class="hover:text-gray-300 border-amber-100 border-2 text-xl text-amber-100 p-2 rounded">Date
                         Side </a></li>
                 <li class="mt-2"><a href="./index.html"
                         class="hover:text-gray-300 border-amber-100 border-2 text-xl text-amber-100 p-2 rounded">Radio
                         side</a></li>
-
             </ul>
 
-            <!-- Mobile Menu Button -->
             <button id="menu-btn" class="md:hidden">
                 <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor">
@@ -65,7 +58,6 @@
             </button>
         </div>
 
-        <!-- Mobile Menu -->
         <ul id="mobile-menu"
             class="hidden md:hidden flex flex-col items-center space-y-4 mt-4 bg-black bg-opacity-50 backdrop-blur-md p-4">
             <li><a href="#" class="hover:text-gray-300">Home</a></li>
@@ -76,30 +68,29 @@
     </nav>
 
 
-    <div class="relative w-full h-[600px]"> <!-- Map container -->
-
-        <!-- ✅ MAP -->
+    <div class="relative w-full h-[600px]">
         <div id="map" class="w-full h-full"></div>
 
-        <!-- ✅ OVERLAY: Dropdown + Button -->
-        <div
-            class="ml-9 absolute top-4 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-70 px-4 py-3 rounded-md flex flex-col md:flex-row items-center gap-2 z-50">
-
-            <div class="relative inline-block">
+        <!-- Top Center Button -->
+        <div class="absolute top-8 left-1/2 transform -translate-x-1/2 z-50">
+            <div class="bg-black bg-opacity-70 px-4 py-3 rounded-md">
                 <button id="allCountriesBtn"
-                    class="text-white flex items-center justify-between px-4 py-2 w-48 rounded bg-gradient-to-r from-blue-400 to-black capitalize">
-                    Show Countries
-                    <svg class="w-4 h-4 ml-2 fill-current text-white" xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 20 20">
-                        <path d="M5.516 7.548l4.484 4.488 4.484-4.488 1.416 1.416L10 14.868 4.1 8.964z" />
+                    class="text-white px-2 py-2 w-48 rounded bg-gradient-to-r from-blue-400 to-black capitalize flex items-center justify-between">
+                    <span>Show Countries</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2 fill-white" viewBox="0 0 20 20">
+                        <path
+                            d="M5.23 7.21a.75.75 0 011.06.02L10 11.084l3.71-3.855a.75.75 0 111.08 1.04l-4.24 4.4a.75.75 0 01-1.08 0l-4.24-4.4a.75.75 0 01.02-1.06z" />
                     </svg>
                 </button>
             </div>
         </div>
 
+        <!-- Centered Country List -->
+        <div id="countryList"
+            class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white bg-opacity-90 rounded-md shadow-md max-h-[400px] overflow-y-auto w-60 z-100 hidden">
+            <!-- Country list items go here -->
+        </div>
     </div>
-    </div>
-
 
 
 
@@ -108,18 +99,7 @@
 
         const continentSelect = document.getElementById('continent');
         const allCountriesBtn = document.getElementById('allCountriesBtn');
-        // Create a container to dynamically show country list over the map
-        // Create a container to dynamically show country list
-        const countryOverlay = document.createElement('ul');
-        countryOverlay.className = `
-    absolute mt-2 left-0 w-100 max-h-90 overflow-y-auto 
-    bg-white bg-opacity-95 rounded-lg shadow-lg 
-    list-none z-50 p-2 border border-gray-200 text-dark
-    `;
-
-        countryOverlay.id = 'countryList';
-        countryOverlay.style.zIndex = 1000;
-        document.querySelector('.z-50.flex').appendChild(countryOverlay);
+        const countryListContainer = document.getElementById('countryList');
 
         const countriesByContinent = {
             asia: [
@@ -222,7 +202,10 @@
             Turkey: { lat: 38.9637, lng: 35.2433 },
             Turkmenistan: { lat: 38.9697, lng: 59.5563 },
             Tuvalu: { lat: -7.1095, lng: 177.6493 },
-            "United Arab Emirates": { lat: 23.4241, lng: 53.8478 },
+            "United Arab Emirates": {
+                lat: 23.4241, lng:
+                    53.8478
+            },
             Uzbekistan: { lat: 41.3775, lng: 64.5853 },
             Vanuatu: { lat: -15.3767, lng: 166.9592 },
             Vietnam: { lat: 14.0583, lng: 108.2772 },
@@ -370,163 +353,241 @@
         };
 
 
+        const darkModeStyles = [
+            { elementType: "geometry", stylers: [{ color: "#212121" }] },
+            { elementType: "labels.icon", stylers: [{ visibility: "off" }] },
+            { elementType: "labels.text.fill", stylers: [{ color: "#757575" }] },
+            { elementType: "labels.text.stroke", stylers: [{ color: "#212121" }] },
+            {
+                featureType: "administrative",
+                elementType: "geometry",
+                stylers: [{ color: "#757575" }],
+            },
+            {
+                featureType: "administrative.country",
+                elementType: "labels.text.fill",
+                stylers: [{ color: "#9e9e9e" }],
+            },
+            {
+                featureType: "administrative.land_parcel",
+                stylers: [{ visibility: "off" }],
+            },
+            {
+                featureType: "administrative.locality",
+                elementType: "labels.text.fill",
+                stylers: [{ color: "#bdbdbd" }],
+            },
+            {
+                featureType: "poi",
+                elementType: "labels.text.fill",
+                stylers: [{ color: "#757575" }],
+            },
+            {
+                featureType: "poi.park",
+                elementType: "geometry",
+                stylers: [{ color: "#181818" }],
+            },
+            {
+                featureType: "poi.park",
+                elementType: "labels.text.fill",
+                stylers: [{ color: "#616161" }],
+            },
+            {
+                featureType: "road",
+                elementType: "geometry.fill",
+                stylers: [{ color: "#2c2c2c" }],
+            },
+            {
+                featureType: "road",
+                elementType: "labels.text.fill",
+                stylers: [{ color: "#8a8a8a" }],
+            },
+            {
+                featureType: "road.arterial",
+                elementType: "geometry",
+                stylers: [{ color: "#373737" }],
+            },
+            {
+                featureType: "road.highway",
+                elementType: "geometry",
+                stylers: [{ color: "#3c3c3c" }],
+            },
+            {
+                featureType: "road.highway.controlled_access",
+                elementType: "geometry",
+                stylers: [{ color: "#4e4e4e" }],
+            },
+            {
+                featureType: "road.local",
+                elementType: "labels.text.fill",
+                stylers: [{ color: "#616161" }],
+            },
+            {
+                featureType: "transit",
+                elementType: "labels.text.fill",
+                stylers: [{ color: "#757575" }],
+            },
+            {
+                featureType: "water",
+                elementType: "geometry",
+                stylers: [{ color: "#000000" }],
+            },
+            {
+                featureType: "water",
+                elementType: "labels.text.fill",
+                stylers: [{ color: "#3d3d3d" }],
+            },
+        ];
+
+
+
+
+
         let map;
-        let currentMarker = null;
+        let markers = [];
 
         function initMap() {
-            map = new google.maps.Map(document.getElementById("map"), {
-                center: { lat: 20.0, lng: 0.0 },
-                zoom: 2,
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: 0, lng: 0 },
+                zoom: 3,
+                styles: darkModeStyles
             });
 
-            // Handle country click
-            document.getElementById("allCountriesBtn").addEventListener("click", function () {
-                const countryList = Object.keys(countryCoordinates);
-                const ul = document.getElementById("countryList");
-                ul.innerHTML = "";
-                countryList.forEach(country => {
-                    const li = document.createElement("li");
-                    li.textContent = country;
-                    li.className = "cursor-pointer hover:bg-gray-200 px-3 py-2 rounded";
-                    li.addEventListener("click", () => {
-                        showCountryMarker(country);
-                    });
-                    ul.appendChild(li);
-                });
+            // ✅ Add your country markers here:
+            addMarker({ lat: 20.5937, lng: 78.9629 }, {
+                name: "India",
+                population: "1.4 Billion",
+                flagUrl: "https://flagcdn.com/w320/in.png"
+            });
+
+            addMarker({ lat: 37.0902, lng: -95.7129 }, {
+                name: "USA",
+                population: "331 Million",
+                flagUrl: "https://flagcdn.com/w320/us.png"
+            });
+
+            addMarker({ lat: 51.1657, lng: 10.4515 }, {
+                name: "Germany",
+                population: "83 Million",
+                flagUrl: "https://flagcdn.com/w320/de.png"
             });
         }
 
-        function showCountryMarker(country) {
-            const coords = countryCoordinates[country];
-            if (!coords) return;
+        function clearMarkers() {
+            markers.forEach(marker => marker.setMap(null));
+            markers = [];
+        }
 
-            // Clear previous marker
-            if (currentMarker) {
-                currentMarker.setMap(null);
-            }
-
-            // Custom icon
-            const customIcon = {
-                url: "your-icon-path.png", // <-- replace with actual path or URL
-                scaledSize: new google.maps.Size(40, 40),
-                anchor: new google.maps.Point(20, 40)
-            };
-
-            currentMarker = new google.maps.Marker({
-                position: coords,
+        function addMarker(location, countryData) {
+            const marker = new google.maps.Marker({
+                position: location,
                 map: map,
-                icon: "./assets/map_markerss.png",
-                title: country,
+                title: countryData.name,
+                icon: "./assets/map_markerss.png"
             });
+
+            const contentString = `
+        <div style="min-width: 180px; padding: 10px; font-size: 14px;">
+            <img src="${countryData.flagUrl}" alt="${countryData.name} flag" style="width: 40px; height: auto; margin-bottom: 8px;">
+            <strong>${countryData.name}</strong><br>
+            Population: ${countryData.population}
+        </div>
+    `;
 
             const infoWindow = new google.maps.InfoWindow({
-                content: `<strong>${country} </strong>`,
+                content: contentString
             });
 
-            currentMarker.addListener("click", () => {
-                infoWindow.open(map, currentMarker);
+            marker.addListener('mouseover', () => {
+                infoWindow.open(map, marker);
             });
 
-            map.setZoom(5);
-            map.setCenter(coords);
+            marker.addListener('mouseout', () => {
+                infoWindow.close();
+            });
+
+            markers.push(marker);
         }
 
-        window.onload = initMap;
+        // Map js end here 
 
 
 
-        function addMultipleMarkers(locations) {
-            clearMarkers();
-            var bounds = new google.maps.LatLngBounds();
 
-            locations.forEach((location) => {
-                var marker = new google.maps.Marker({
-                    position: { lat: location.lat, lng: location.lng },
-                    map: map,
-                    title: location.title,
-                    icon: "./assets/map_markerss.png",
+        continentSelect.addEventListener('change', function () {
+            const selectedContinent = this.value;
+            const countries = countriesByContinent[selectedContinent] || [];
+            countryListContainer.innerHTML = ''; // Clear previous list
+            countryListContainer.classList.add('hidden'); // Hide the list initially
 
-
+            if (countries.length > 0) {
+                countries.forEach(country => {
+                    const listItem = document.createElement('div');
+                    listItem.textContent = country;
+                    listItem.className = 'px-4 py-2 hover:bg-gray-100 cursor-pointer m-auto';
+                    listItem.addEventListener('click', () => {
+                        const coordinates = countryCoordinates[country];
+                        if (coordinates) {
+                            map.setCenter(coordinates);
+                            map.setZoom(6); // Adjust zoom level as needed
+                            clearMarkers();
+                            addMarker(coordinates, country);
+                            countryListContainer.classList.add('hidden'); // Hide list after selection
+                        } else {
+                            console.warn(`Coordinates not found for ${country}`);
+                        }
+                    });
+                    countryListContainer.appendChild(listItem);
                 });
+            }
+        });
 
-                markers.push(marker);
-                // bounds.extend(marker.getPosition());
-                bounds.extend(new google.maps.LatLng(location.lat, location.lng));
-            });
+        allCountriesBtn.addEventListener('click', function () {
+            countryListContainer.classList.toggle('hidden');
+            const selectedContinent = continentSelect.value;
+            const countries = countriesByContinent[selectedContinent] || [];
+            countryListContainer.innerHTML = ''; // Clear previous list
 
-            if (locations.length === 1) {
-                // Single location: center and zoom in manually
-                map.setCenter(locations[0]);
-                map.setZoom(6); // You can adjust this zoom level as needed
+            if (countries.length > 0) {
+                countries.forEach(country => {
+                    const listItem = document.createElement('div');
+                    listItem.textContent = country;
+                    listItem.className = 'px-4 py-2 hover:bg-gray-100 cursor-pointer';
+                    listItem.addEventListener('click', () => {
+                        const coordinates = countryCoordinates[country];
+                        if (coordinates) {
+                            map.setCenter(coordinates);
+                            map.setZoom(6); // Adjust zoom level as needed
+                            clearMarkers();
+                            addMarker(coordinates, country);
+                            countryListContainer.classList.add('hidden'); // Hide list after selection
+                        } else {
+                            console.warn(`Coordinates not found for ${country}`);
+                        }
+                    });
+                    countryListContainer.appendChild(listItem);
+                });
+                countryListContainer.classList.remove('hidden');
             } else {
-                // Multiple markers: fit bounds
-                map.fitBounds(bounds);
-            }
-        }
-
-
-
-
-
-
-
-        // Append to the parent div of the button
-        allCountriesBtn.parentNode.appendChild(countryOverlay);
-
-        allCountriesBtn.addEventListener('click', () => {
-            const selectedContinent = continentSelect.value;
-            const countries = countriesByContinent[selectedContinent] || [];
-
-            // Populate the overlay
-            countryOverlay.innerHTML = countries.map(c =>
-                `<li class="my-1">
-                            <button class="underline text-blue-500 hover:text-white hover:bg-blue-500 transition-all w-full text-left px-2 py-1 rounded country-item" data-country="${c}">
-                                ${c}
-                            </button>
-                            </li>`
-            ).join('');
-
-            // Toggle visibility
-            countryOverlay.style.display = countryOverlay.style.display === 'none' ? 'block' : 'none';
-        });
-        // Event listener for country click
-        countryOverlay.addEventListener('click', (e) => {
-            if (e.target.classList.contains('country-item')) {
-                const countryName = e.target.dataset.country;
-                const coords = countryCoordinates[countryName];
-
-                // 👉 Hide the overlay first
-                countryOverlay.remove(); // or you can use `countryOverlay.style.display = 'none';` to just hide it
-
-                // 👉 Then zoom to the country
-                if (coords && map) {
-                    map.setCenter(coords);
-                    map.setZoom(5);
-                } else {
-                    alert(`No map data found for ${countryName}`);
-                }
+                countryListContainer.classList.add('hidden');
             }
         });
 
-        // Recreate the countryOverlay after zooming into a country
-        allCountriesBtn.addEventListener('click', () => {
-            // If the country overlay doesn't exist, recreate it
-            if (!document.getElementById('countryList')) {
-                document.querySelector('.z-50.flex').appendChild(countryOverlay);
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuBtn = document.getElementById('menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuIcon = document.getElementById('menu-icon');
+            const closeIcon = document.getElementById('close-icon');
+
+            if (menuBtn) {
+                menuBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                    menuIcon.classList.toggle('hidden');
+                    closeIcon.classList.toggle('hidden');
+                });
             }
-
-            const selectedContinent = continentSelect.value;
-            const countries = countriesByContinent[selectedContinent] || [];
-            countryOverlay.innerHTML = countries.map(c =>
-                `<li><button class="underline text-blue-400 hover:text-white country-item" data-country="${c}">${c}</button></li>`
-            ).join('');
         });
-
-
-
     </script>
-
-
 </body>
 
 </html>
