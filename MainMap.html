@@ -26,6 +26,11 @@
 
             <ul class="hidden md:flex space-x-6">
                 <li>
+                    <button id="back-btn"
+                        class="hidden text-white hover:text-gray-300 border-amber-100 border-2 text-xl text-amber-100 p-2 rounded"
+                       >Back</button>
+                </li>
+                <li>
                     <select id="continent"
                         class="hover:text-gray-300 border-amber-100 border-2 text-xl text-amber-100 p-2 rounded bg-transparent focus:outline-none">
                         <option value="" selected disabled class="text-black">Select Continent</option>
@@ -831,15 +836,13 @@
             Uganda: { name: 'Uganda', Carrier: 'MTN', Subs: '6.9M', Carrier2: 'Airtel', Subs2: '4.3M', Carrier3: 'Uganda Telecom', Subs3: '4.3M' },
             Zambia: { name: 'Zambia', Carrier: 'MTN', Subs: '10.9M', Carrier2: 'Airtel', Subs2: '4.2M', Carrier3: 'Zamtel', Subs3: '308k' },
             Zimbabwe: { name: 'Zimbabwe', Carrier: 'Econet', Subs: '17.5M', Carrier2: 'NetOne', Subs2: '4.3M', Carrier3: 'Telecel', Subs3: '308k' }
-
-
-
         };
 
 
 
         let map;
         let markers = [];
+        let previousContinent = null;  // To track the previous continent when going back
 
         function initMap() {
             map = new google.maps.Map(document.getElementById('map'), {
@@ -866,16 +869,16 @@
             });
 
             const contentString = `
-    <div style="min-width: 200px; padding: 10px; font-size: 14px;">              
-      <strong>${countryData.name}</strong><br><br>
-      <b>Carrier:</b> ${countryData.Carrier}<br>
-      <b>Subscription:</b> ${countryData.Subs}<br><br>
-      <b>Carrier:</b> ${countryData.Carrier2 || "N/A"}<br>
-      <b>Subscription:</b> ${countryData.Subs2 || "N/A"}<br><br>
-      <b>Carrier:</b> ${countryData.Carrier3 || "N/A"}<br>
-      <b>Subscription:</b> ${countryData.Subs3 || "N/A"}<br>
-    </div>
-  `;
+            <div style="min-width: 200px; padding: 10px; font-size: 14px;">              
+                <strong>${countryData.name}</strong><br><br>
+                <b>Carrier:</b> ${countryData.Carrier}<br>
+                <b>Subscription:</b> ${countryData.Subs}<br><br>
+                <b>Carrier:</b> ${countryData.Carrier2 || "N/A"}<br>
+                <b>Subscription:</b> ${countryData.Subs2 || "N/A"}<br><br>
+                <b>Carrier:</b> ${countryData.Carrier3 || "N/A"}<br>
+                <b>Subscription:</b> ${countryData.Subs3 || "N/A"}<br>
+            </div>
+        `;
 
             const infoWindow = new google.maps.InfoWindow({ content: contentString });
 
@@ -885,13 +888,9 @@
             markers.push(marker);
         }
 
-
-
-        // Map js end here 
-
-
         continentSelect.addEventListener('change', function () {
             const selectedContinent = this.value;
+            previousContinent = selectedContinent;  // Track selected continent
             const countries = countriesByContinent[selectedContinent] || [];
 
             countryListContainer.innerHTML = '';
@@ -917,6 +916,7 @@
                             clearMarkers();
                             addMarker(coords, country);
                             countryListContainer.classList.add('hidden');
+                            showBackButton();  // Show the back button when a country is clicked
                         });
                         countryListContainer.appendChild(listItem);
                     }
@@ -924,15 +924,20 @@
 
                 // Fit the bounds to the markers
                 map.fitBounds(bounds);
-
-
             }
         });
 
+        function showBackButton() {
+            const backButton = document.getElementById('back-btn');
+            backButton.classList.remove('hidden');
+            backButton.addEventListener('click', function () {
+                showAllCountries(previousContinent);  // Show all countries of the selected continent
+                backButton.classList.add('hidden');  // Hide the back button
+            });
+        }
 
-
-        function showAllAsiaCountries() {
-            const countries = countriesByContinent['Asia'];
+        function showAllCountries(continent) {
+            const countries = countriesByContinent[continent];
             clearMarkers();
             const bounds = new google.maps.LatLngBounds();
 
@@ -945,20 +950,8 @@
             });
 
             map.fitBounds(bounds);
+            countryListContainer.classList.remove('hidden');  // Show country list again
         }
-
-        function showCountryDetails(country) {
-            const coords = countryCoordinates[country]; // Assuming you have this mapping
-            if (coords) {
-                map.setCenter(coords);
-                map.setZoom(5);
-                clearMarkers();
-                addMarker(coords, country);
-                selectedCountry = country; // Track the selected country
-                showBackButton();
-            }
-        }
-
 
         allCountriesBtn.addEventListener('click', function () {
             countryListContainer.classList.toggle('hidden');
@@ -979,6 +972,7 @@
                             clearMarkers();
                             addMarker(coordinates, country);
                             countryListContainer.classList.add('hidden'); // Hide list after selection
+                            showBackButton();  // Show the back button when a country is clicked
                         } else {
                             console.warn(`Coordinates not found for ${country}`);
                         }
