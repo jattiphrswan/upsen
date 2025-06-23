@@ -465,59 +465,103 @@
 
         const countryDetails = {
             // Asia
-            Afghanistan: { name: 'Afghanistan', Carrier: 'N/A', Subs: 'N/A', Carrier2: 'N/A', Subs2: 'N/A', Carrier3: 'N/A', Subs3: 'N/A' },
-            Australia: { name: 'Australia', Carrier: 'Telstra', Subs: '18M', Carrier2: 'Optus', Subs2: '10M', Carrier3: 'Vodafone AU', Subs3: '5M' },
-            Azerbaijan: { name: 'Azerbaijan', Carrier: 'Azercell', Subs: '4M', Carrier2: 'Bakcell', Subs2: '2M', Carrier3: 'Nar', Subs3: '1.5M' },
-            Bahrain: { name: 'Bahrain', Carrier: 'Batelco', Subs: '1M', Carrier2: 'Zain Bahrain', Subs2: '0.8M', Carrier3: 'Viva Bahrain', Subs3: '0.6M' },
-            Bhutan: { name: 'Bhutan', Carrier: 'B-Mobile', Subs: '0.5M', Carrier2: 'TashiCell', Subs2: '0.4M', Carrier3: 'N/A', Subs3: 'N/A' },
-            Brunei: { name: 'Brunei', Carrier: 'DST', Subs: '0.4M', Carrier2: 'Imagine', Subs2: '0.2M', Carrier3: 'Progresif', Subs3: '0.2M' },
-            Cambodia: { name: 'Cambodia', Carrier: 'Cellcard', Subs: '3M', Carrier2: 'Smart Axiata', Subs2: '4M', Carrier3: 'Metfone', Subs3: '5M' },
-            Cyprus: { name: 'Cyprus', Carrier: 'Cyta', Subs: '1M', Carrier2: 'MTN Cyprus', Subs2: '0.5M', Carrier3: 'PrimeTel', Subs3: '0.3M' },
-            Georgia: { name: 'Georgia', Carrier: 'MagtiCom', Subs: '2M', Carrier2: 'Beeline', Subs2: '1M', Carrier3: 'Silknet', Subs3: '1M' },
-            HongKong: { name: 'Hong Kong', Carrier: 'CSL', Subs: '4M', Carrier2: '3HK', Subs2: '3M', Carrier3: 'SmarTone', Subs3: '2M' },
-            Israel: { name: 'Israel', Carrier: 'Cellcom', Subs: '3M', Carrier2: 'Partner', Subs2: '2.5M', Carrier3: 'Pelephone', Subs3: '2M' },
-            Jordan: { name: 'Jordan', Carrier: 'Zain', Subs: '3M', Carrier2: 'Orange', Subs2: '2.5M', Carrier3: 'Umniah', Subs3: '2M' },
-            Kazakhstan: { name: 'Kazakhstan', Carrier: 'Kcell', Subs: '7M', Carrier2: 'Beeline', Subs2: '6M', Carrier3: 'Tele2', Subs3: '3M' },
-            Kuwait: { name: 'Kuwait', Carrier: 'Zain', Subs: '3M', Carrier2: 'Ooredoo', Subs2: '2.5M', Carrier3: 'STC', Subs3: '2M' },
-            Kyrgyzstan: { name: 'Kyrgyzstan', Carrier: 'MegaCom', Subs: '3M', Carrier2: 'Beeline', Subs2: '2M', Carrier3: 'O!', Subs3: '1.5M' },
-            Laos: { name: 'Laos', Carrier: 'Unitel', Subs: '2.5M', Carrier2: 'ETL', Subs2: '1M', Carrier3: 'TPLUS', Subs3: '0.5M' },
-            Lebanon: { name: 'Lebanon', Carrier: 'Touch', Subs: '2M', Carrier2: 'Alfa', Subs2: '1.5M', Carrier3: 'N/A', Subs3: 'N/A' },
-            Macau: { name: 'Macau', Carrier: 'CTM', Subs: '0.6M', Carrier2: '3 Macau', Subs2: '0.3M', Carrier3: 'Smartone Macau', Subs3: '0.2M' },
-            Maldives: { name: 'Maldives', Carrier: 'Dhiraagu', Subs: '0.4M', Carrier2: 'Ooredoo Maldives', Subs2: '0.3M', Carrier3: 'N/A', Subs3: 'N/A' },
-            Myanmar: { name: 'Myanmar', Carrier: 'MPT', Subs: '20M', Carrier2: 'Telenor Myanmar', Subs2: '18M', Carrier3: 'Ooredoo Myanmar', Subs3: '15M' },
-            India: { name: 'India', Carrier: 'Airtel', Subs: '250M', Carrier2: 'Jio', Subs2: '400M', Carrier3: 'Vi', Subs3: '120M' },
-            China: { name: 'China', Carrier: 'China Mobile', Subs: '940M', Carrier2: 'China Unicom', Subs2: '300M', Carrier3: 'China Telecom', Subs3: '340M' },
-            Japan: { name: 'Japan', Carrier: 'NTT Docomo', Subs: '80M', Carrier2: 'SoftBank', Subs2: '45M', Carrier3: 'KDDI', Subs3: '50M' },
-            Indonesia: { name: 'Indonesia', Carrier: 'Telkomsel', Subs: '170M', Carrier2: 'Indosat Ooredoo', Subs2: '60M', Carrier3: 'XL Axiata', Subs3: '55M' },
-            Bangladesh: { name: 'Bangladesh', Carrier: 'Grameenphone', Subs: '80M', Carrier2: 'Robi', Subs2: '50M', Carrier3: 'Banglalink', Subs3: '40M' },
-            Pakistan: { name: 'Pakistan', Carrier: 'Jazz', Subs: '70M', Carrier2: 'Zong', Subs2: '45M', Carrier3: 'Telenor', Subs3: '40M' },
-            Vietnam: { name: 'Vietnam', Carrier: 'Viettel', Subs: '110M', Carrier2: 'MobiFone', Subs2: '30M', Carrier3: 'Vinaphone', Subs3: '20M' },
-            Philippines: { name: 'Philippines', Carrier: 'Globe Telecom', Subs: '86M', Carrier2: 'Smart Communications', Subs2: '70M', Carrier3: 'DITO', Subs3: '15M' },
-            Malaysia: { name: 'Malaysia', Carrier: 'Maxis', Subs: '40M', Carrier2: 'Celcom', Subs2: '30M', Carrier3: 'Digi', Subs3: '25M' },
-            Thailand: { name: 'Thailand', Carrier: 'AIS', Subs: '43M', Carrier2: 'TrueMove H', Subs2: '30M', Carrier3: 'DTAC', Subs3: '25M' },
-            SaudiArabia: { name: 'Saudi Arabia', Carrier: 'STC', Subs: '35M', Carrier2: 'Mobily', Subs2: '20M', Carrier3: 'Zain', Subs3: '15M' },
-            UAE: { name: 'United Arab Emirates', Carrier: 'Etisalat', Subs: '12M', Carrier2: 'du', Subs2: '10M', Carrier3: 'N/A', Subs3: 'N/A' },
-            Nepal: { name: 'Nepal', Carrier: 'Nepal Telecom', Subs: '15M', Carrier2: 'Ncell', Subs2: '10M', Carrier3: 'N/A', Subs3: 'N/A' },
-            Iran: { name: 'Iran', Carrier: 'MCI', Subs: '60M', Carrier2: 'Irancell', Subs2: '40M', Carrier3: 'RighTel', Subs3: '10M' },
-            Iraq: { name: 'Iraq', Carrier: 'Zain Iraq', Subs: '16M', Carrier2: 'Asiacell', Subs2: '14M', Carrier3: 'Korek', Subs3: '6M' },
-            Mongolia: { name: 'Mongolia', Carrier: 'Mobicom', Subs: '1.5M', Carrier2: 'Unitel', Subs2: '1.2M', Carrier3: 'Skytel', Subs3: '0.8M' },
-            NorthKorea: { name: 'North Korea', Carrier: 'Koryolink', Subs: '6M', Carrier2: 'N/A', Subs2: 'N/A', Carrier3: 'N/A', Subs3: 'N/A' },
-            Oman: { name: 'Oman', Carrier: 'Omantel', Subs: '3M', Carrier2: 'Ooredoo Oman', Subs2: '2.5M', Carrier3: 'Vodafone Oman', Subs3: '0.5M' },
-            Palestine: { name: 'Palestine', Carrier: 'Jawwal', Subs: '2M', Carrier2: 'Ooredoo Palestine', Subs2: '1M', Carrier3: 'N/A', Subs3: 'N/A' },
-            Qatar: { name: 'Qatar', Carrier: 'Ooredoo Qatar', Subs: '3M', Carrier2: 'Vodafone Qatar', Subs2: '1.5M', Carrier3: 'N/A', Subs3: 'N/A' },
-            Singapore: { name: 'Singapore', Carrier: 'Singtel', Subs: '4M', Carrier2: 'StarHub', Subs2: '2.5M', Carrier3: 'M1', Subs3: '2M' },
-            SouthKorea: { name: 'South Korea', Carrier: 'SK Telecom', Subs: '30M', Carrier2: 'KT Corp', Subs2: '25M', Carrier3: 'LG U+', Subs3: '20M' },
-            SriLanka: { name: 'Sri Lanka', Carrier: 'Dialog', Subs: '16M', Carrier2: 'Mobitel', Subs2: '7M', Carrier3: 'Airtel Lanka', Subs3: '2M' },
-            Syria: { name: 'Syria', Carrier: 'Syriatel', Subs: '6M', Carrier2: 'MTN Syria', Subs2: '5M', Carrier3: 'N/A', Subs3: 'N/A' },
-            Taiwan: { name: 'Taiwan', Carrier: 'Chunghwa Telecom', Subs: '11M', Carrier2: 'FarEasTone', Subs2: '7M', Carrier3: 'Taiwan Mobile', Subs3: '6M' },
-            TimorLeste: { name: 'Timor-Leste', Carrier: 'Timor Telecom', Subs: '0.5M', Carrier2: 'Telkomcel', Subs2: '0.3M', Carrier3: 'Telemor', Subs3: '0.2M' },
-            Turkey: { name: 'Turkey', Carrier: 'Turkcell', Subs: '35M', Carrier2: 'Vodafone Turkey', Subs2: '23M', Carrier3: 'Türk Telekom', Subs3: '15M' },
-            Turkmenistan: { name: 'Turkmenistan', Carrier: 'TM-Cell', Subs: '4M', Carrier2: 'N/A', Subs2: 'N/A', Carrier3: 'N/A', Subs3: 'N/A' },
-            Uzbekistan: { name: 'Uzbekistan', Carrier: 'Uzmobile', Subs: '6M', Carrier2: 'Beeline Uzbekistan', Subs2: '5M', Carrier3: 'UMS', Subs3: '3M' },
-            Yemen: { name: 'Yemen', Carrier: 'Yemen Mobile', Subs: '5M', Carrier2: 'Sabafon', Subs2: '3M', Carrier3: 'MTN Yemen', Subs3: '2M' },
+            Afghanistan: { name: 'Afghanistan', Carrier: 'Roshan', Subs: '6.5M', Carrier2: 'Afghan Wireless', Subs2: '5M', Carrier3: 'Etisalat', Subs3: '3M', Carrier: 'Salaam', Subs: '2M', },
+
+            Afghanistan: { name: 'Afghanistan', Carrier: 'Roshan', Subs: '6.5M', Carrier2: 'Afghan Wireless', Subs2: '5M', Carrier3: 'Etisalat', Subs3: '3M', Carrier4: 'Salaam', Subs4: '2M' },
+
+            Australia: { name: 'Australia', Carrier: 'Telstra', Subs: '21.7M', Carrier2: 'Optus', Subs2: '10M', Carrier3: 'Vodafone', Subs3: '5.3M' },
+
+            Azerbaijan: { name: 'Azerbaijan', Carrier: 'Azercell', Subs: '4.8M', Carrier2: 'Bakcell', Subs2: '3M', Carrier3: 'Nar Mobile', Subs3: '2.5M' },
+
+            Bahrain: { name: 'Bahrain', Carrier: 'Batelco', Subs: '836k', Carrier2: 'Zain', Subs2: '800k', Carrier3: 'Viva', Subs3: '4k' },
+
+            Bangladesh: { name: 'Bangladesh', Carrier: 'Grameenphone', Subs: '82.2M', Carrier2: 'Robi Axiata', Subs2: '58.4M', Carrier3: 'Banglalink', Subs3: '43.4M', Carrier4: 'Teletalk', Subs4: '6.5M' },
+
+            Bhutan: { name: 'Bhutan', Carrier: 'Bhutan Telecom', Subs: '501k', Carrier2: 'TashiCell', Subs2: '339k', Carrier3: '', Subs3: '' },
+
+            BruneiDarussalam: { name: 'Brunei Darussalam', Carrier: 'Datastream (DST)', Subs: '320k', Carrier2: 'Progresif', Subs2: '150k', Carrier3: '', Subs3: '' },
+
+            Cambodia: { name: 'Cambodia', Carrier: 'Metfone', Subs: '9M', Carrier2: 'Smart Axiata', Subs2: '8M', Carrier3: 'Cellcard', Subs3: '4.5M' },
+
+            China: { name: 'China', Carrier: 'China Mobile', Subs: '1000M', Carrier2: 'China Telecom', Subs2: '417M', Carrier3: 'China Unicom', Subs3: '339M' },
+
+            ChristmasIsland: { name: 'Christmas Island', Carrier: '', Subs: '', Carrier2: '', Subs2: '', Carrier3: '', Subs3: '' },
+            CocosKeelingIslands: { name: 'Cocos (Keeling Islands)', Carrier: 'Indian Ocean (IOTT)', Subs: '383', Carrier2: '', Subs2: '', Carrier3: '', Subs3: '' },
+            CookIslands: { name: 'Cook Islands', Carrier: 'Vodafone', Subs: '6300', Carrier2: '', Subs2: '', Carrier3: '', Subs3: '' },
+            Cyprus: { name: 'Cyprus', Carrier: 'Cyta (Vodafone)', Subs: '1.2M', Carrier2: 'Epic', Subs2: '750k', Carrier3: 'Cablenet', Subs3: '262k', Carrier4: 'PrimeTel', Subs4: '262k' },
+            Fiji: { name: 'Fiji', Carrier: 'Vodafone', Subs: '800k', Carrier2: 'Digicel', Subs2: '', Carrier3: '', Subs3: '' },
+            Georgia: { name: 'Georgia', Carrier: 'Magti', Subs: '2.3M', Carrier2: 'Silknet', Subs2: '1.8M', Carrier3: 'Cellfie', Subs3: '1.3M' },
+            HongKong: { name: 'Hong Kong', Carrier: 'China Mobile', Subs: '5M', Carrier2: 'HKT', Subs2: '4.8M', Carrier3: 'Hutchison (3 Hong Kong)', Subs3: '4.3M', Carrier4: 'SmarTone', Subs4: '2.7M' },
+            India: { name: 'India', Carrier: 'Reliance Jio', Subs: '476.5M', Carrier2: 'Bharti Airtel', Subs2: '289.3M', Carrier3: 'Vodafone', Subs3: '126.4M', Carrier4: 'Bharat (BSNL)', Subs4: '35.3M' },
+            Indonesia: { name: 'Indonesia', Carrier: 'Telkomsel', Subs: '156.8M', Carrier2: 'Indosat Ooredoo', Subs2: '100M', Carrier3: 'XL Axiata', Subs3: '57.5M', Carrier4: 'Smartfren', Subs4: '36M' },
+            Iraq: { name: 'Iraq', Carrier: 'Zain', Subs: '19.7M', Carrier2: 'Asiacell', Subs2: '19.1M', Carrier3: 'Korek Telecom', Subs3: '7.2M' },
+            Iran: { name: 'Iran', Carrier: 'MCI', Subs: '70M', Carrier2: 'MTN Irancell', Subs2: '50.4M', Carrier3: 'RighTel', Subs3: '9.5M' },
+            Israel: { name: 'Israel', Carrier: 'Cellcom', Subs: '2.8M', Carrier2: 'Pelephone', Subs2: '2.3M', Carrier3: 'Hot Mobile', Subs3: '1.5M' },
+            Japan: { name: 'Japan', Carrier: 'NTT Docomo', Subs: '90M', Carrier2: 'KDDI', Subs2: '59.4M', Carrier3: 'Softbank', Subs3: '40M', Carrier4: 'Rakuten Mobile', Subs4: '8.5M' },
+            Jordan: { name: 'Jordan', Carrier: 'Zain', Subs: '3.7M', Carrier2: 'Umniah', Subs2: '1.4M', Carrier3: '', Subs3: '' },
+            Kazakhstan: { name: 'Kazakhstan', Carrier: 'Beeline', Subs: '9.8M', Carrier2: 'Kcell', Subs2: '8M', Carrier3: 'Tele2', Subs3: '7.3M' },
+            Kiribati: { name: 'Kiribati', Carrier: 'ATHKL', Subs: '82k', Carrier2: '', Subs2: '', Carrier3: '', Subs3: '' },
+            Kuwait: { name: 'Kuwait', Carrier: 'Ooredoo', Subs: '2.9M', Carrier2: 'Zain', Subs2: '2.7M', Carrier3: 'STC', Subs3: '2.4M' },
+
+
+            Kyrgyzstan: { name: 'Kyrgyzstan', Carrier: 'Beeline', Subs: '1.8M', Carrier2: 'Megacom', Subs2: '3M', Carrier3: '', Subs3: '' },
+            Laos: { name: 'Laos', Carrier: 'Lao Telecom', Subs: '3.3M', Carrier2: 'Unitel', Subs2: '3M', Carrier3: 'Enterprise (ETL)', Subs3: '' },
+            Lebanon: { name: 'Lebanon', Carrier: 'Alfa (state owned)', Subs: '2.1M', Carrier2: 'Touch (state owned)', Subs2: '2.6M', Carrier3: '', Subs3: '' },
+            Macau: { name: 'Macau', Carrier: 'CTM', Subs: '771k', Carrier2: 'China Telecom', Subs2: '450k', Carrier3: '3Macau', Subs3: '' },
+            Malaysia: { name: 'Malaysia', Carrier: 'Celcom Digi', Subs: '20.3M', Carrier2: 'Maxis', Subs2: '12.9M', Carrier3: 'U Mobile', Subs3: '9M' },
+            Maldives: { name: 'Maldives', Carrier: 'Dhiraagu', Subs: '500k', Carrier2: 'Ooredoo', Subs2: '345k', Carrier3: '', Subs3: '' },
+            MarshallIslands: { name: 'Marshall Islands', Carrier: 'NTA (state owned)', Subs: '39k', Carrier2: '', Subs2: '', Carrier3: '', Subs3: '' },
+            Micronesia: { name: 'Micronesia', Carrier: 'FSM Telecomm.', Subs: '30k', Carrier2: '', Subs2: '', Carrier3: '', Subs3: '' },
+            Myanmar: { name: 'Myanmar', Carrier: 'MPT Myanmar', Subs: '29.6M', Carrier2: 'Atom Myanmar', Subs2: '17.7M', Carrier3: 'Ooredoo', Subs3: '8.5M', Carrier4: 'Mytel', Subs4: '13M' },
+            Mongolia: { name: 'Mongolia', Carrier: 'Mobicom', Subs: '1.7M', Carrier2: 'Skytel', Subs2: '500k', Carrier3: 'Unitel', Subs3: '500k', Carrier4: 'G-Mobile', Subs4: '500k' },
+            Nauru: { name: 'Nauru', Carrier: 'Digicel', Subs: '11k', Carrier2: '', Subs2: '', Carrier3: '', Subs3: '' },
+            Nepal: { name: 'Nepal', Carrier: 'Nepal Telecom', Subs: '21.3M', Carrier2: 'Ncell Axiata', Subs2: '18.9M', Carrier3: '', Subs3: '' },
+            NewZealand: { name: 'New Zealand', Carrier: 'Spark', Subs: '2.5M', Carrier2: 'One NZ', Subs2: '2.3M', Carrier3: '2degrees', Subs3: '1.1M' },
+            Niue: { name: 'Niue', Carrier: 'Telecom Niue', Subs: '1638', Carrier2: '', Subs2: '', Carrier3: '', Subs3: '' },
+            NorfolkIsland: { name: 'Norfolk Island', Carrier: 'Norfolk Telecom', Subs: '1763', Carrier2: '', Subs2: '', Carrier3: '', Subs3: '' },
+            NorthKorea: { name: 'North Korea', Carrier: 'Koryolink', Subs: '', Carrier2: 'Kang Song Net', Subs2: '', Carrier3: '', Subs3: '' },
+            Oman: { name: 'Oman', Carrier: 'Omantel (state own)', Subs: '3.3M', Carrier2: 'Ooredoo', Subs2: '2.8M', Carrier3: 'Vodafone', Subs3: '854k' },
+            Pakistan: { name: 'Pakistan', Carrier: 'Jazz (PMCL)', Subs: '72.7M', Carrier2: 'Zong', Subs2: '51.1M', Carrier3: 'Telenor', Subs3: '43.6M', Carrier4: 'Ufone', Subs4: '26M' },
+
+            Palau: { name: 'Palau', Carrier: 'Palau National', Subs: '25k', Carrier2: '', Subs2: '', Carrier3: '', Subs3: '' },
+            Palestine: { name: 'Palestine', Carrier: 'Jawwal', Subs: '3M', Carrier2: 'Ooredoo', Subs2: '1.5M', Carrier3: '', Subs3: '' },
+            PapuaNewGuinea: { name: 'Papua New Guinea', Carrier: 'Digicel', Subs: '3.8M', Carrier2: 'Vodafone', Subs2: '1M', Carrier3: 'Bmobile', Subs3: '190k' },
+            Philippines: { name: 'Philippines', Carrier: 'Globe Telecom', Subs: '60.9M', Carrier2: 'PLDT (Smart)', Subs2: '60.3M', Carrier3: 'DITO', Subs3: '13.1M' },
+            Qatar: { name: 'Qatar', Carrier: 'Ooredoo', Subs: '3.4M', Carrier2: 'Vodafone', Subs2: '2.1M', Carrier3: '', Subs3: '' },
+            Russia: { name: 'Russia', Carrier: 'MTS', Subs: '81.9M', Carrier2: 'MegaFon', Subs2: '77.3M', Carrier3: 'Tele2', Subs3: '48M' },
+            Samoa: { name: 'Samoa', Carrier: 'Vodafone', Subs: '134k', Carrier2: 'Digicel', Subs2: '', Carrier3: '', Subs3: '' },
+            SaudiArabia: { name: 'Saudi Arabia', Carrier: 'Saudi Telecom', Subs: '27.6M', Carrier2: 'Mobily', Subs2: '12.3M', Carrier3: 'Zain', Subs3: '8.9M' },
+            Singapore: { name: 'Singapore', Carrier: 'Singtel', Subs: '4.1M', Carrier2: 'Starhub', Subs2: '2.3M', Carrier3: 'M1', Subs3: '2M' },
+            SolomonIslands: { name: 'Solomon Islands', Carrier: 'Our Telecom', Subs: '428k', Carrier2: 'B-Mobile Vodafone', Subs2: '119k', Carrier3: '', Subs3: '' },
+            SouthKorea: { name: 'South Korea', Carrier: 'SK Telecom', Subs: '31.5M', Carrier2: 'KT', Subs2: '13.5M', Carrier3: 'LG U+', Subs3: '18.4M' },
+            SriLanka: { name: 'Sri Lanka', Carrier: 'Dialog Axiata', Subs: '17M', Carrier2: 'Mobitel', Subs2: '9M', Carrier3: 'Hutch', Subs3: '3.8M' },
+            Syria: { name: 'Syria', Carrier: 'Syriatel', Subs: '11M', Carrier2: 'MTN', Subs2: '6M', Carrier3: '', Subs3: '' },
+            Tajikistan: { name: 'Tajikistan', Carrier: 'Babilon', Subs: '4.1M', Carrier2: 'Tcell', Subs2: '3.5M', Carrier3: 'Megafon', Subs3: '1.4M' },
+            Taiwan: { name: 'Taiwan', Carrier: 'Chungwa Telecom', Subs: '10.6M', Carrier2: 'Far Eastone', Subs2: '7.8M', Carrier3: 'Taiwan Mobile', Subs3: '10M' },
+            Thailand: { name: 'Thailand', Carrier: 'AIS', Subs: '46M', Carrier2: 'True Corporation', Subs2: '52M', Carrier3: 'National Telecom', Subs3: '1.5M' },
+            TimorLeste: { name: 'Timor-Leste', Carrier: 'Timor Telecom', Subs: '632k', Carrier2: 'Telkomcel', Subs2: '60k', Carrier3: 'Telemor', Subs3: '580k' },
+            Tokelau: { name: 'Tokelau', Carrier: 'Teletok', Subs: '1068', Carrier2: '', Subs2: '', Carrier3: '', Subs3: '' },
+            Tonga: { name: 'Tonga', Carrier: 'TCC', Subs: '', Carrier2: 'Digicel', Subs2: '', Carrier3: '', Subs3: '' },
+            Turkey: { name: 'Turkey', Carrier: 'Turkcell', Subs: '33.1M', Carrier2: 'Vodafone', Subs2: '24.7M', Carrier3: 'Turk Telecom', Subs3: '22.7M' },
+            Turkmenistan: { name: 'Turkmenistan', Carrier: 'Altyn Asyr (state own)', Subs: '3.4M', Carrier2: 'MTS', Subs2: '1.7M', Carrier3: '', Subs3: '' },
+            Tuvalu: { name: 'Tuvalu', Carrier: 'Tuvalu Tel', Subs: '4833', Carrier2: '', Subs2: '', Carrier3: '', Subs3: '' },
+            UnitedArabEmirates: { name: 'United Arab Emirates', Carrier: 'Etisalat', Subs: '12.2M', Carrier2: 'du', Subs2: '8.6M', Carrier3: '', Subs3: '' },
+            Uzbekistan: { name: 'Uzbekistan', Carrier: 'Beeline', Subs: '10M', Carrier2: 'Ucell', Subs2: '9.5M', Carrier3: 'Mobiuz', Subs3: '7.7M' },
+            Vanuatu: { name: 'Vanuatu', Carrier: 'Vodafone', Subs: '', Carrier2: 'Digicel', Subs2: '', Carrier3: '', Subs3: '' },
+            VietNam: { name: 'Viet Nam', Carrier: 'Viettel', Subs: '71.6M', Carrier2: 'VinaPhone', Subs2: '26.7M', Carrier3: 'MobiFone', Subs3: '17M' },
+            Yemen: { name: 'Yemen', Carrier: 'Yemen Mobile', Subs: '10M', Carrier2: 'Yemeni Omani', Subs2: '4.7M', Carrier3: 'Sabafon', Subs3: '3M' },
+
+
+
+
+
 
             // ======================================================== ====================================================================
             // Africa data 
+
+
+
+
             Algeria: {
                 name: 'Algeria',
                 Carrier: 'Djezzy',
